@@ -1,6 +1,6 @@
 ## macOS Serial Number Leak
 
-A tiny Swift Package that exposes a library function to read the Mac’s hardware serial number and a CLI that prints it to stdout. Includes deterministic unit tests and coverage helpers.
+A Swift PoC that reads the Mac’s hardware serial number. The serial number is a durable, globally unique identifier. Unrestricted access via public `IOKit` APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior up to macOS 2025 Sequoia 18.7 RC.
 
 ### Requirements
 - **Platform**: macOS 10.15+
@@ -90,9 +90,6 @@ make coverage-show
 - `Tests/SerialNumberCoreTests/…`: XCTest + Swift Testing suites
 - `Makefile`: developer shortcuts
 - `Package.swift`: SwiftPM manifest (links `IOKit`)
-
-### Privacy context (why this exists)
-The serial number is a durable, globally unique identifier. Unrestricted access via public IOKit APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior and provides a concrete baseline for evaluating mitigations.
 
 ### License
 MIT © 2025 Gaston Morixe
