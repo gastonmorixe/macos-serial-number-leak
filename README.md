@@ -1,4 +1,4 @@
-## serial-number — macOS Serial Number CLI/Library
+## macOS Serial Number Leak
 
 A tiny Swift Package that exposes a library function to read the Mac’s hardware serial number and a CLI that prints it to stdout. Includes deterministic unit tests and coverage helpers.
 
