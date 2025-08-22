@@ -2,6 +2,35 @@
 
 A Swift PoC that reads the Mac’s hardware serial number without user consent. Appke's Mac serial number is a durable, globally unique identifier. Unrestricted access via public [`IOKit`'s `kIOPlatformSerialNumberKey`](https://developer.apple.com/documentation/iokit/kioplatformserialnumberkey) APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior up to macOS 2025 Sequoia 15.7 (24G214).
 
+### Tiny PoC (Swift)
+```swift
+import Foundation
+import IOKit
+
+// Read Mac serial from IORegistry via IOKit (public API)
+let match = IOServiceMatching("IOPlatformExpertDevice")!
+
+let service = IOServiceGetMatchingService(kIOMainPortDefault, match)
+guard service != 0 else {
+    fputs("Unable to access IORegistry\n", stderr)
+    exit(EXIT_FAILURE)
+}
+defer { IOObjectRelease(service) }
+
+let value = IORegistryEntryCreateCFProperty(
+    service,
+    kIOPlatformSerialNumberKey as CFString, // <<<==
+    kCFAllocatorDefault,
+    0
+)?.takeRetainedValue()
+
+if let serial = (value as? String), !serial.isEmpty {
+    print("Serial:", serial)
+} else {
+    print("Serial unavailable")
+}
+```
+
 ### Requirements
 - **Platform**: macOS 10.15+
 - **Toolchain**: SwiftPM (bundled with Xcode). Works with recent Xcode/Swift versions
