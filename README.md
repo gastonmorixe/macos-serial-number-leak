@@ -1,6 +1,6 @@
 ## macOS Serial Number Leak
 
-A Swift PoC that reads the Mac’s hardware serial number without user consent. Apple's Mac serial number is a durable, globally unique identifier. Unrestricted access via public [`IOKit`'s `kIOPlatformSerialNumberKey`](https://developer.apple.com/documentation/iokit/kioplatformserialnumberkey) APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior up to macOS 2025 Sequoia 15.7 (24G214).
+A Swift PoC that reads the Mac’s hardware serial number without user consent. Apple's Mac serial number is a durable, globally unique identifier. Unrestricted access via public [`IOKit`'s `kIOPlatformSerialNumberKey`](https://developer.apple.com/documentation/iokit/kioplatformserialnumberkey) APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior up to macOS 2025 Sequoia 15.7 (24G214). Update: tested in macOS 26 beta 7 and stills happening.
 
 <p align="center">
 <img width="727" height="414" alt="Screenshot 2025-08-21 at 7 25 49 PM" src="https://github.com/user-attachments/assets/3095495e-5680-4d5d-a254-8a3f4d6e99b5" />
