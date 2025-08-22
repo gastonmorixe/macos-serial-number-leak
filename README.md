@@ -1,6 +1,6 @@
 ## macOS Serial Number Leak
 
-A Swift PoC that reads the Mac’s hardware serial number without user consent. Appke's Mac serial number is a durable, globally unique identifier. Unrestricted access via public [`IOKit`'s `kIOPlatformSerialNumberKey`](https://developer.apple.com/documentation/iokit/kioplatformserialnumberkey) APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior up to macOS 2025 Sequoia 15.7 (24G214).
+A Swift PoC that reads the Mac’s hardware serial number without user consent. Apple's Mac serial number is a durable, globally unique identifier. Unrestricted access via public [`IOKit`'s `kIOPlatformSerialNumberKey`](https://developer.apple.com/documentation/iokit/kioplatformserialnumberkey) APIs enables tracking and cross-app correlation. This PoC demonstrates the current behavior up to macOS 2025 Sequoia 15.7 (24G214).
 
 ### Tiny PoC (Swift)
 ```swift
